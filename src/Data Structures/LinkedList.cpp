@@ -3,41 +3,43 @@
 using std::cout;
 using std::endl;
 
+template <typename T>
 class Node {
     public:
-        int data;
+        T data;
         Node* next;
 
-    Node(int data) {
+    Node(T data) {
         this->data = data;
         this->next = nullptr;
     }
 };
 
+template <typename T>
 class LinkedList {
     public:
-        Node* head;
+        Node<T>* head;
 
     LinkedList() {
         this->head = nullptr;
     }
 
     ~LinkedList() {
-        Node* currentNode = head;
+        Node<T>* currentNode = head;
         while (currentNode != nullptr) {
-            Node* nextNode = currentNode->next;
+            Node<T>* nextNode = currentNode->next;
             delete currentNode;
             currentNode = nextNode;
         }
     }
     
-    void append(int data) {
-        Node* newNode = new Node(data);
+    void append(T data) {
+        Node<T>* newNode = new Node(data);
 
         if (this->head == nullptr) {
             this->head = newNode;
         } else {
-            Node* last = this->head;
+            Node<T>* last = this->head;
             while(last->next != nullptr) {
                 last = last->next;
             }
@@ -46,17 +48,17 @@ class LinkedList {
 
     }
 
-    int pop(int index) {
+    T pop(int index) {
         if (this->head == nullptr) {
             throw std::out_of_range("List is empty");
         }
 
-        Node* currentNode = this->head;
-        Node* previousNode = nullptr;
+        Node<T>* currentNode = this->head;
+        Node<T>* previousNode = nullptr;
 
         if (index == 0) {
             this->head = currentNode->next;
-            int data = currentNode->data;
+            T data = currentNode->data;
             delete currentNode;
             return data;
         }
@@ -67,7 +69,7 @@ class LinkedList {
                 if (previousNode != nullptr) {
                     previousNode->next = currentNode->next;
                 }
-                int data = currentNode->data;
+                T data = currentNode->data;
                 delete currentNode;
                 return data;
             }
@@ -86,7 +88,7 @@ class LinkedList {
             return;
         }
 
-        Node* currentNode = this->head;
+        Node<T>* currentNode = this->head;
         cout << "Linked List: ";
         while (currentNode != nullptr) {
             cout << currentNode->data;
@@ -100,7 +102,7 @@ class LinkedList {
 
     int size() const {
         int count = 1;
-        Node* currentNode = this->head;
+        Node<T>* currentNode = this->head;
         while (currentNode->next != nullptr) {
             count++;
             currentNode = currentNode->next;
