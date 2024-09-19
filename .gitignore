@@ -1,34 +1,62 @@
-# Compiled object files
-*.o
+# User-specific files
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
 
-# Compiled dynamic libraries
-*.so
-*.dylib
+# User-specific files (Mono Auto Generated)
+mono_crash.*
 
-# Compiled static libraries
-*.a
-*.lib
+# Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+bld/
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Ll]ogs/
 
-# Executables
+# C++ specific
+*.obj
 *.exe
-*.out
+*.pdb
+*.ilk
+*.lib
+*.exp
+*.dll
+*.pdb
+*.idb
+*.ipch
+*.aps
+*.ncb
+*.sdf
+*.opendb
+*.tlog
+*.VC.db
+*.VC.VC.opendb
 
-# Visual Studio Code specific files
+# Visual Studio Code workspace settings
 .vscode/
 
-# CMake build directory
-build/
+# Recycle Bin used by the Visual Studio project
+.vs/
 
-# C++ build artifacts
-Debug/
-Release/
-x64/
-
-# macOS specific files
-.DS_Store
-
-# Windows specific files
+# Backup & hidden folder
+Backup/
 Thumbs.db
+ehthumbs.db
+
+# Temporary files
+*.tmp
+*.log
+*.vscode/*
 
 # Main
 main.cpp
