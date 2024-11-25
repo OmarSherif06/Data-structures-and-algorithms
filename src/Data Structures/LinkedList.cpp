@@ -81,6 +81,21 @@ class LinkedList {
         throw std::out_of_range("Index out of bounds");
 
     }
+    
+    void reverse() {
+        Node<T>* previousNode = nullptr;
+        Node<T>* currentNode = this->head;
+        Node<T>* nextNode = nullptr;
+
+        while (currentNode != nullptr) {
+            nextNode = currentNode->next;
+            currentNode->next = previousNode;
+            previousNode = currentNode;
+            currentNode = nextNode;
+        }
+
+        this->head = previousNode;
+    }
 
     void print() const {
         if (this->head == nullptr) {
